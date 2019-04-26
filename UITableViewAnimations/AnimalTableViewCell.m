@@ -24,13 +24,13 @@
     {
         CAGradientLayer *gradientLayer = [CAGradientLayer new];
         gradientLayer.frame = CGRectMake(0, 0, UIScreen.mainScreen.bounds.size.width, 72.f);
-        gradientLayer.colors = [NSArray arrayWithObjects:(id)UIColor.blackColor.CGColor, UIColor.darkGrayColor.CGColor, UIColor.lightGrayColor.CGColor, UIColor.whiteColor.CGColor, nil];
+        gradientLayer.colors = [NSArray arrayWithObjects:(id)UIColor.orangeColor.CGColor, UIColor.yellowColor.CGColor,
+                                UIColor.whiteColor.CGColor, nil];
         
         [self.contentView.layer addSublayer:gradientLayer];
         _coverImageView = [UIImageView new];
-        _coverImageView.backgroundColor = [UIColor yellowColor];
+        _coverImageView.backgroundColor = UIColor.blueColor;
         _coverImageView.translatesAutoresizingMaskIntoConstraints = NO;
-        _coverImageView.userInteractionEnabled = YES;
         [self.contentView addSubview:_coverImageView];
         
         _titleLabel = [UILabel new];
@@ -39,7 +39,7 @@
         [self.contentView addSubview:_titleLabel];
         
         _subtitleLabel = [UILabel new];
-        _subtitleLabel.backgroundColor = [UIColor blueColor];
+        _subtitleLabel.backgroundColor = [UIColor cyanColor];
         _subtitleLabel.numberOfLines = 0;
         _subtitleLabel.translatesAutoresizingMaskIntoConstraints = NO;
         [self.contentView addSubview:_subtitleLabel];
