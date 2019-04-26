@@ -49,24 +49,52 @@
     id animalData = self.animals[indexPath.row];
     
     cell.titleLabel.text = animalData[@"title"];
-    cell.subtitleLable.text = animalData[@"subtitle"];
+    cell.subtitleLabel.text = animalData[@"subtitle"];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     AnimalTableViewCell *animalTableViewCell = (AnimalTableViewCell *)cell;
-    ///NSLog(@"x = %f", animalTableViewCell.coverImageView.layer.position.x);
-    CGFloat x = animalTableViewCell.coverImageView.layer.position.x;
     
-    if (x > 0)
+    CGFloat animationDuration = 0.75;
+    
+    CGFloat coverImageViewPositionX = animalTableViewCell.coverImageView.layer.position.x;
+    
+    if (coverImageViewPositionX > 0)
     {
         CABasicAnimation *coverImageViewAnimation = [CABasicAnimation animationWithKeyPath:@"position.x"];
-        coverImageViewAnimation.duration = 0.75;
+        coverImageViewAnimation.duration = animationDuration;
         coverImageViewAnimation.fromValue = @(-40.0);
-        coverImageViewAnimation.toValue = @(x);
+        coverImageViewAnimation.toValue = @(coverImageViewPositionX);
         
         [animalTableViewCell.coverImageView.layer addAnimation:coverImageViewAnimation forKey:@"coverImageViewAnimation"];
+    }
+    
+    CGFloat cellWidth = cell.bounds.size.width;
+    CGFloat titleLabelPositionX = animalTableViewCell.titleLabel.layer.position.x;
+    
+    if (titleLabelPositionX > 0)
+    {
+        CABasicAnimation *titleLabelAnimation = [CABasicAnimation animationWithKeyPath:@"position.x"];
+        titleLabelAnimation.duration = animationDuration;
+        titleLabelAnimation.fromValue = @(cellWidth);
+        titleLabelAnimation.toValue = @(titleLabelPositionX);
+        titleLabelAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+        
+        [animalTableViewCell.titleLabel.layer addAnimation:titleLabelAnimation forKey:@"titleLabelAnimation"];
+    }
+    
+    CGFloat subtitleLabelPositionX = animalTableViewCell.subtitleLabel.layer.position.x;
+    
+    if (subtitleLabelPositionX > 0)
+    {
+        CABasicAnimation *subtitleLabelAnimation = [CABasicAnimation animationWithKeyPath:@"position.x"];
+        subtitleLabelAnimation.duration = animationDuration;
+        subtitleLabelAnimation.fromValue = @(cellWidth);
+        subtitleLabelAnimation.toValue = @(subtitleLabelPositionX);
+        
+        [animalTableViewCell.subtitleLabel.layer addAnimation:subtitleLabelAnimation forKey:@"subtitleLabelAnimation"];
     }
 }
 

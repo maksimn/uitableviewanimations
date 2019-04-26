@@ -33,11 +33,11 @@
         _titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
         [self.contentView addSubview:_titleLabel];
         
-        _subtitleLable = [UILabel new];
-        _subtitleLable.backgroundColor = [UIColor blueColor];
-        _subtitleLable.numberOfLines = 0;
-        _subtitleLable.translatesAutoresizingMaskIntoConstraints = NO;
-        [self.contentView addSubview:_subtitleLable];
+        _subtitleLabel = [UILabel new];
+        _subtitleLabel.backgroundColor = [UIColor blueColor];
+        _subtitleLabel.numberOfLines = 0;
+        _subtitleLabel.translatesAutoresizingMaskIntoConstraints = NO;
+        [self.contentView addSubview:_subtitleLabel];
         
         [self makeConstraints];
     }
@@ -47,14 +47,14 @@
 
 - (void)prepareForReuse
 {
-    self.subtitleLable.text = nil;
+    self.subtitleLabel.text = nil;
     self.titleLabel.text = nil;
     [super prepareForReuse];
 }
 
 - (void) makeConstraints
 {
-    NSLayoutConstraint *bottomConstraint = [_subtitleLable.bottomAnchor constraintEqualToAnchor:self.contentView.bottomAnchor constant:-16.f];
+    NSLayoutConstraint *bottomConstraint = [_subtitleLabel.bottomAnchor constraintEqualToAnchor:self.contentView.bottomAnchor constant:-16.f];
     bottomConstraint.priority = UILayoutPriorityDefaultHigh;
     
     self.topCoverImageConstraint =[_coverImageView.topAnchor constraintEqualToAnchor:self.contentView.topAnchor constant:16.f];
@@ -67,9 +67,9 @@
                                               [_titleLabel.topAnchor constraintEqualToAnchor:self.contentView.topAnchor constant:16.f],
                                               [_titleLabel.rightAnchor constraintEqualToAnchor:self.contentView.rightAnchor constant:-16.f],
                                               [_titleLabel.heightAnchor constraintEqualToConstant:16.f],
-                                              [_subtitleLable.leftAnchor constraintEqualToAnchor:_coverImageView.rightAnchor constant:16.f],
-                                              [_subtitleLable.topAnchor constraintEqualToAnchor:_titleLabel.bottomAnchor constant:16.f],
-                                              [_subtitleLable.rightAnchor constraintEqualToAnchor:self.contentView.rightAnchor constant:-16.f],
+                                              [_subtitleLabel.leftAnchor constraintEqualToAnchor:_coverImageView.rightAnchor constant:16.f],
+                                              [_subtitleLabel.topAnchor constraintEqualToAnchor:_titleLabel.bottomAnchor constant:16.f],
+                                              [_subtitleLabel.rightAnchor constraintEqualToAnchor:self.contentView.rightAnchor constant:-16.f],
                                               bottomConstraint
                                               ]];
 }
