@@ -13,6 +13,7 @@
 		0C970ACA2272C8EF00001F81 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C970AC82272C8EF00001F81 /* LaunchScreen.storyboard */; };
 		0C970ACD2272C8EF00001F81 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C970ACC2272C8EF00001F81 /* main.m */; };
 		0C970AD52272D57300001F81 /* AnimalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C970AD42272D57300001F81 /* AnimalTableViewCell.m */; };
+		0C970AD82272E33100001F81 /* AnimalListRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C970AD72272E33100001F81 /* AnimalListRepository.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,8 @@
 		0C970ACC2272C8EF00001F81 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0C970AD32272D57300001F81 /* AnimalTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimalTableViewCell.h; sourceTree = "<group>"; };
 		0C970AD42272D57300001F81 /* AnimalTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimalTableViewCell.m; sourceTree = "<group>"; };
+		0C970AD62272E33100001F81 /* AnimalListRepository.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimalListRepository.h; sourceTree = "<group>"; };
+		0C970AD72272E33100001F81 /* AnimalListRepository.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimalListRepository.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +72,8 @@
 				0C970ACC2272C8EF00001F81 /* main.m */,
 				0C970AD32272D57300001F81 /* AnimalTableViewCell.h */,
 				0C970AD42272D57300001F81 /* AnimalTableViewCell.m */,
+				0C970AD62272E33100001F81 /* AnimalListRepository.h */,
+				0C970AD72272E33100001F81 /* AnimalListRepository.m */,
 			);
 			path = UITableViewAnimations;
 			sourceTree = "<group>";
@@ -142,6 +147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C970AD82272E33100001F81 /* AnimalListRepository.m in Sources */,
 				0C970AC22272C8EE00001F81 /* ViewController.m in Sources */,
 				0C970AD52272D57300001F81 /* AnimalTableViewCell.m in Sources */,
 				0C970ACD2272C8EF00001F81 /* main.m in Sources */,

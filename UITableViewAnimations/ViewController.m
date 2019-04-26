@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "AnimalTableViewCell.h"
+#import "AnimalListRepository.h"
 
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -31,20 +32,7 @@
     
     [self.view addSubview:self.tableView];
     
-    NSArray *data = @[
-                      @{
-                          @"title": @"Корова Ve",
-                          @"subtitle": @"Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum."
-                          },
-                      @{
-                          @"title": @"Собака",
-                          @"subtitle": @"Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот"
-                          },
-                      @{
-                          @"title": @"Кошка",
-                          @"subtitle": @"Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum. Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот"
-                          }
-                      ];
+    NSArray *data = [AnimalListRepository getAnimalList];
     
     self.animals = data;
 }
