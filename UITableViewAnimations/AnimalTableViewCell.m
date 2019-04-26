@@ -22,13 +22,10 @@
     
     if (self)
     {
-        UITapGestureRecognizer *tapOnCoverImage = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapCoverImage)] ;
-        
         _coverImageView = [UIImageView new];
         _coverImageView.backgroundColor = [UIColor yellowColor];
         _coverImageView.translatesAutoresizingMaskIntoConstraints = NO;
         _coverImageView.userInteractionEnabled = YES;
-        [_coverImageView addGestureRecognizer:tapOnCoverImage];
         [self.contentView addSubview:_coverImageView];
         
         _titleLabel = [UILabel new];
@@ -75,16 +72,6 @@
                                               [_subtitleLable.rightAnchor constraintEqualToAnchor:self.contentView.rightAnchor constant:-16.f],
                                               bottomConstraint
                                               ]];
-}
-
-- (void)didTapCoverImage
-{
-    [self.coverImageView removeConstraint:self.topCoverImageConstraint];
-    NSLayoutConstraint *alignCenterYConstraint = [self.coverImageView.centerYAnchor constraintEqualToAnchor:self.contentView.centerYAnchor];
-    [self.contentView addConstraint:alignCenterYConstraint];
-    [UIView animateWithDuration:0.5 animations:^{
-        [self layoutIfNeeded];
-    }];
 }
 
 @end

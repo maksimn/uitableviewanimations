@@ -53,9 +53,21 @@
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
+    AnimalTableViewCell *animalTableViewCell = (AnimalTableViewCell *)cell;
+    ///NSLog(@"x = %f", animalTableViewCell.coverImageView.layer.position.x);
+    CGFloat x = animalTableViewCell.coverImageView.layer.position.x;
+    
+    if (x > 0)
+    {
+        CABasicAnimation *coverImageViewAnimation = [CABasicAnimation animationWithKeyPath:@"position.x"];
+        coverImageViewAnimation.duration = 0.75;
+        coverImageViewAnimation.fromValue = @(-40.0);
+        coverImageViewAnimation.toValue = @(x);
+        
+        [animalTableViewCell.coverImageView.layer addAnimation:coverImageViewAnimation forKey:@"coverImageViewAnimation"];
+    }
 }
 
 @end
