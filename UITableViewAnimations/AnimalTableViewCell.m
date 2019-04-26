@@ -8,11 +8,13 @@
 
 #import "AnimalTableViewCell.h"
 
+
 @interface AnimalTableViewCell ()
 
 @property (nonatomic, strong) NSLayoutConstraint *topCoverImageConstraint;
 
 @end
+
 
 @implementation AnimalTableViewCell
 
@@ -63,6 +65,7 @@
     bottomConstraint.priority = UILayoutPriorityDefaultHigh;
     
     self.topCoverImageConstraint =[_coverImageView.topAnchor constraintEqualToAnchor:self.contentView.topAnchor constant:16.f];
+    
     [NSLayoutConstraint activateConstraints:@[
                                               [_coverImageView.leftAnchor constraintEqualToAnchor:self.contentView.leftAnchor constant:16.f],
                                               self.topCoverImageConstraint,

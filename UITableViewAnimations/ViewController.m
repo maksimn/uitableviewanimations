@@ -10,6 +10,7 @@
 #import "AnimalTableViewCell.h"
 #import "AnimalListRepository.h"
 
+
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
@@ -17,7 +18,10 @@
 
 @end
 
+
 @implementation ViewController
+
+#pragma mark - Lifecycle
 
 - (void)viewDidLoad
 {
@@ -32,10 +36,10 @@
     
     [self.view addSubview:self.tableView];
     
-    NSArray *data = [AnimalListRepository getAnimalList];
-    
-    self.animals = data;
+    self.animals = [AnimalListRepository getAnimalList];
 }
+
+#pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -50,15 +54,25 @@
     
     cell.titleLabel.text = animalData[@"title"];
     cell.subtitleLabel.text = animalData[@"subtitle"];
+    
     return cell;
 }
 
+#pragma mark - UITableViewDelegate
+
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    AnimalTableViewCell *animalTableViewCell = (AnimalTableViewCell *)cell;
-    
+    [self animateAnimalTableViewCellOnWillDisplay:(AnimalTableViewCell *)cell];
+}
+
+- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return NO;
+}
+
+- (void)animateAnimalTableViewCellOnWillDisplay:(AnimalTableViewCell *)animalTableViewCell
+{
     CGFloat animationDuration = 0.75;
-    
     CGFloat coverImageViewPositionX = animalTableViewCell.coverImageView.layer.position.x;
     
     if (coverImageViewPositionX > 0)
@@ -71,7 +85,7 @@
         [animalTableViewCell.coverImageView.layer addAnimation:coverImageViewAnimation forKey:@"coverImageViewAnimation"];
     }
     
-    CGFloat cellWidth = cell.bounds.size.width;
+    CGFloat cellWidth = animalTableViewCell.bounds.size.width;
     CGFloat titleLabelPositionX = animalTableViewCell.titleLabel.layer.position.x;
     
     if (titleLabelPositionX > 0)
@@ -98,9 +112,5 @@
     }
 }
 
-- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return NO;
-}
-
 @end
+
