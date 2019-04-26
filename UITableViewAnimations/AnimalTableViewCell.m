@@ -22,6 +22,11 @@
     
     if (self)
     {
+        CAGradientLayer *gradientLayer = [CAGradientLayer new];
+        gradientLayer.frame = CGRectMake(0, 0, UIScreen.mainScreen.bounds.size.width, 72.f);
+        gradientLayer.colors = [NSArray arrayWithObjects:(id)UIColor.blackColor.CGColor, UIColor.darkGrayColor.CGColor, UIColor.lightGrayColor.CGColor, UIColor.whiteColor.CGColor, nil];
+        
+        [self.contentView.layer addSublayer:gradientLayer];
         _coverImageView = [UIImageView new];
         _coverImageView.backgroundColor = [UIColor yellowColor];
         _coverImageView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -52,7 +57,7 @@
     [super prepareForReuse];
 }
 
-- (void) makeConstraints
+- (void)makeConstraints
 {
     NSLayoutConstraint *bottomConstraint = [_subtitleLabel.bottomAnchor constraintEqualToAnchor:self.contentView.bottomAnchor constant:-16.f];
     bottomConstraint.priority = UILayoutPriorityDefaultHigh;
